@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MY CART</title>
+    <link rel="stylesheet" href="Cart.css">
+  </head>
+  <body style="
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0; 
+  width: 100%;
+  background-color: whitesmoke;
+  height: 250vh;
+  overflow-y: scroll;">
+  <div class="Header">
+    <div class="Left-sec">
+      <img class="Brand-logo" src="Header-icons/brand logo.png">
+    </div>
+    <div class="Right-sec">
+      <div class="Right-Sec-Horizontal-div">
+        <div class="Icon-div">
+          <img class="Icon-img" 
+          src="Header-icons/profile.png">
+          <p class="Icon-text">
+            Profile
+          </p>
+        </div>
+        <div class="Icon-div">
+          <img class="Icon-img" 
+          src="Header-icons/message.png">
+          <p class="Icon-text">
+            Message
+          </p>
+        </div>
+        <div class="Icon-div">
+          <img class="Icon-img" 
+          src="Header-icons/orders.png">
+          <p class="Icon-text">
+            Orders
+          </p>
+        </div>
+        <div class="Icon-div">
+          <img class="Icon-img" 
+          src="Header-icons/my cart.png">
+          <p class="Icon-text">
+            My cart
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cart-wrapper-container">
+    <div class="cart-header">My cart (<span id="cart-count">3</span>)</div>
+    <div class="cart-wrapper">
+      <div class="cart-item" data-price="78.99">
+        <img src="cloths/tshirt.jpg" alt="Product" />
+        <div class="item-details">
+          <h4>T-shirts with multiple colors, for men and lady</h4>
+          <p>Size: medium, Color: blue, Material: Plastic</p>
+          <p>Seller: Artel Market</p>
+          <div class="actions">
+            <button class="remove-btn" onclick="removeItem(this)">Remove</button>
+            <button class="save-btn">Save for later</button>
+          </div>
+        </div>
+        <div class="price-qty">
+          <div class="item-price">$78.99</div>
+          <select class="qty-select" onchange="updateCart()">
+            <option value="1">1</option>
+            <option value="9" selected>9</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+      </div>
+      <div class="cart-item" data-price="39.00">
+        <img src="main-page/bag.jpg" alt="Product" />
+        <div class="item-details">
+          <h4>T-shirts with multiple colors, for men and lady</h4>
+          <p>Size: medium, Color: blue, Material: Plastic</p>
+          <p>Seller: Best factory LLC</p>
+          <div class="actions">
+            <button class="remove-btn" onclick="removeItem(this)">Remove</button>
+            <button class="save-btn">Save for later</button>
+          </div>
+        </div>
+        <div class="price-qty">
+          <div class="item-price">$39.00</div>
+          <select class="qty-select" onchange="updateCart()">
+            <option value="1">1</option>
+            <option value="3" selected>3</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+      </div>
+      <div class="cart-item" data-price="170.50">
+        <img src="interior/6.jpg" alt="Product" />
+        <div class="item-details">
+          <h4>T-shirts with multiple colors, for men and lady</h4>
+          <p>Size: medium, Color: blue, Material: Plastic</p>
+          <p>Seller: Artel Market</p>
+          <div class="actions">
+            <button class="remove-btn" onclick="removeItem(this)">Remove</button>
+            <button class="save-btn">Save for later</button>
+          </div>
+        </div>
+        <div class="price-qty">
+          <div class="item-price">$170.50</div>
+          <select class="qty-select" onchange="updateCart()">
+            <option value="1" selected>1</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+      </div>
+      <div class="footer-buttons">
+        <a href="E-commerce.html" class="back-btn">← Back to shop</a>
+        <button class="remove-all-btn" onclick="removeAll()">Remove all</button>
+      </div>
+    </div>
+  </div>
+  <div class="coupon-box">
+    <label class="coupon-label">Have a coupon?</label>
+    <div class="coupon-input-wrapper">
+      <input type="text" placeholder="Add coupon" class="coupon-input" />
+      <button class="apply-btn-coupon">Apply</button>
+    </div>
+  </div>
+  <div class="summary-box">
+    <div class="summary-row">
+      <span>Subtotal:</span>
+      <span id="subtotal">$0.00</span>
+    </div>
+    <div class="summary-row">
+      <span>Discount:</span>
+      <span class="discount">- $0.00</span>
+    </div>
+    <div class="summary-row">
+      <span>Tax:</span>
+      <span class="tax">+ $0.00</span>
+    </div>
+    <div class="summary-row total">
+      <span>Total:</span>
+      <span id="total">$0.00</span>
+    </div>
+    <div class="separator"></div>
+    <button class="checkout-btn">Checkout</button>
+    <div class="payments">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo.svg" alt="Amex">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="MasterCard">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple Pay">
+    </div>
+  </div>
+  <div class="features">
+    <div class="feature">
+      <div class="icon-circle-feature">
+        <img src="icons-cart/icon-security.png" alt="Secure Payment">
+      </div>
+      <div>
+        <h4>Secure payment</h4>
+        <p>Have you ever finally just</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="icon-circle-feature">
+        <img src="icons-cart/icon-customer.png" alt="Customer Support">
+      </div>
+      <div>
+        <h4>Customer support</h4>
+        <p>Have you ever finally just</p>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="icon-circle-feature">
+        <img src="icons-cart/icon-free.png" alt="Free Delivery">
+      </div>
+      <div>
+        <h4>Free delivery</h4>
+        <p>Have you ever finally just</p>
+      </div>
+    </div>
+  </div>
+  <div class="saved-section">
+    <h2>Saved for later</h2>
+    <div class="product-grid-saved">
+      <div class="product-card-saved">
+        <div class="product-image-saved">
+          <img src="listing page/2.jpg" alt="Tablet" />
+        </div>
+        <div class="product-price-saved">$99.50</div>
+        <div class="product-name-saved">GoPro HERO6 4K Action Camera - Black</div>
+        <button class="btn-saved">Move to cart</button>
+      </div>
+      <div class="product-card-saved">
+        <div class="product-image-saved">
+          <img src="listing page/4.jpg" alt="Phone" />
+        </div>
+        <div class="product-price-saved">$99.50</div>
+        <div class="product-name-saved">GoPro HERO6 4K Action Camera - Black</div>
+        <button class="btn-saved">Move to cart</button>
+      </div>
+      <div class="product-card-saved">
+        <div class="product-image-saved">
+          <img src="listing page/8.jpg" alt="Watch" />
+        </div>
+        <div class="product-price-saved">$99.50</div>
+        <div class="product-name-saved">GoPro HERO6 4K Action Camera - Black</div>
+        <button class="btn-saved">Move to cart</button>
+      </div>
+      <div class="product-card-saved">
+        <div class="product-image-saved">
+          <img src="listing page/7.jpg" alt="Laptop" />
+        </div>
+        <div class="product-price-saved">$99.50</div>
+        <div class="product-name-saved">GoPro HERO6 4K Action Camera - Black</div>
+        <button class="btn-saved">Move to cart</button>
+      </div>
+    </div>
+  </div>
+  <div class="discount-banner">
+    <div class="discount-text">
+      <h2>Super discount on more than 100 USD</h2>
+      <p>Have you ever finally just write dummy info</p>
+    </div>
+    <div class="banner-shape"></div>
+    <button class="discount-button">Shop now</button>
+  </div>
+  <div class="footer">
+    <div class="footer-column">
+      <div class="footer-brand">
+        <img src="footer/logo.png" alt="Brand">
+        <span style="font-size: 24px; font-weight: bold; color: #6699ff; letter-spacing: 0.6px; margin-top: 5px;">Brand</span>
+      </div>
+      <p style="font-size: 15px; color: #666; letter-spacing: 0.4px;">Best information about the company goes here but now lorem ipsum
+        is</p>
+        <div class="footer-social">
+          <img src="footer/facebook.png" alt="Facebook">
+          <img src="footer/twitter3.png" alt="Twitter">
+          <img src="footer/linkedin3.png" alt="LinkedIn">
+          <img src="footer/instagram3.png" alt="Instagram">
+          <img src="footer/youtube3.png" alt="YouTube">
+        </div>
+      </div>
+      <div class="footer-column">
+        <div class="footer-title">About</div>
+        <ul class="footer-links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Find Store</a></li>
+          <li><a href="#">Categories</a></li>
+          <li><a href="#">Blogs</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <div class="footer-title">Partnership</div>
+        <ul class="footer-links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Find Store</a></li>
+          <li><a href="#">Categories</a></li>
+          <li><a href="#">Blogs</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <div class="footer-title">Information</div>
+        <ul class="footer-links">
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Money Refund</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <div class="footer-title">For Users</div>
+        <ul class="footer-links">
+          <li><a href="#">Login</a></li>
+          <li><a href="#">Register</a></li>
+          <li><a href="#">Settings</a></li>
+          <li><a href="#">My Orders</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <div class="footer-title">Get App</div>
+        <div class="footer-apps">
+          <img src="footer/apple.png" alt="App Store">
+          <img src="footer/google.png" alt="Google Play">
+        </div>
+      </div>
+    </div>
+    <div class="footer2">
+      <div style="margin-left: 20px;
+      font-size: 16px;">
+      &copy; 2023 Ecommerce.
+    </div>
+    <div class="language-selector">
+      <img src="flags/usa.png" alt="US Flag">
+      <span>English</span>
+      <span>&#9650;</span>
+    </div>
+  </div>
+  
+  <script>
+
+  let discountRate = 0.05; // 5% discount
+  let taxRate = 0.01;      // 1% tax
+
+  function format(amount) {
+    return "$" + amount.toFixed(2);
+  }
+
+  function updateCart() {
+    const cartItems = document.querySelectorAll('.cart-item');
+    let totalItems = 0;
+    let subtotal = 0;
+
+    cartItems.forEach(item => {
+      const qty = parseInt(item.querySelector('select').value);
+      const price = parseFloat(item.dataset.price);
+      totalItems += qty;
+      subtotal += price * qty;
+    });
+
+    document.getElementById('cart-count').innerText = totalItems;
+
+    // Update the summary
+    const discount = subtotal * discountRate;
+    const tax = subtotal * taxRate;
+    const total = subtotal - discount + tax;
+
+    document.getElementById("subtotal").textContent = format(subtotal);
+    document.querySelector(".discount").textContent = "- " + format(discount);
+    document.querySelector(".tax").textContent = "+ " + format(tax);
+    document.getElementById("total").textContent = format(total);
+  }
+
+  function removeItem(btn) {
+    const item = btn.closest('.cart-item');
+    item.remove();
+    updateCart();
+  }
+
+  function removeAll() {
+    const items = document.querySelectorAll('.cart-item');
+    items.forEach(item => item.remove());
+    updateCart();
+  }
+  updateCart();
+    </script>
+  </body>
+</html>
